@@ -1,48 +1,48 @@
 # Class: addusers
 # ===========================
 #
-# Full description of class addusers here.
+# This class lists new users along with relevant supporting information such as
+# home directories, groups, and ssh keys where applicable.
 #
 # Parameters
 # ----------
 #
-# Document parameters here.
-#
-# * `sample parameter`
-# Explanation of what this parameter affects and what it defaults to.
-# e.g. "Specify one or more upstream ntp servers as an array."
+# No input parameters. All users hard coded.
 #
 # Variables
 # ----------
 #
-# Here you should define a list of variables that this module would require.
+# No input variables. All variables hard coded.
 #
-# * `sample variable`
-#  Explanation of how this variable affects the function of this class and if
-#  it has a default. e.g. "The parameter enc_ntp_servers must be set by the
-#  External Node Classifier as a comma separated list of hostnames." (Note,
-#  global variables should be avoided in favor of class parameters as
-#  of Puppet 2.6.)
-#
-# Examples
-# --------
-#
-# @example
-#    class { 'addusers':
-#      servers => [ 'pool.ntp.org', 'ntp.local.company.com' ],
-#    }
 #
 # Authors
 # -------
 #
-# Author Name <author@domain.com>
+# Author Name Keone Martin
 #
 # Copyright
 # ---------
 #
-# Copyright 2016 Your name here, unless otherwise noted.
+# Copyright 2016 Keone Martin, unless otherwise noted.
 #
 class addusers {
+
+
+  group { cars:
+    ensure => 'present',
+  }
+
+  group { trucks:
+    ensure => 'present',
+  }
+
+  group { ambulances:
+    ensure => 'present',
+  }
+
+  group { sysadmin:
+    ensure => 'present',
+  }
 
   user { becca:
     ensure => 'present',
@@ -56,14 +56,6 @@ class addusers {
     shell => '/bin/bash',
     uid => '10017904',
     require => [Group['cars'], Group['sysadmin']]
-  }
-
-  group { cars:
-    ensure => 'present',
-  }
-
-  group { sysadmin:
-    ensure => 'present',
   }
 
   file { "/home/becca":
@@ -86,14 +78,6 @@ class addusers {
     uid => '10027904',
   }
 
-  group { cars:
-    ensure => 'present',
-  }
-
-  group { trucks:
-    ensure => 'present',
-  }
-
   file { "/home/fred":
     ensure => directory,
     owner => 'fred',
@@ -113,18 +97,6 @@ class addusers {
     shell => '/bin/bash',
     uid => '10037904',
   }  
-
-  group { cars:
-    ensure => 'present',
-  }
-
-  group { trucks:
-    ensure => 'present',
-  }
-
-  group { ambulances:
-    ensure => 'present',
-  }
 
   file { "/home/wilma":
     ensure => directory,
