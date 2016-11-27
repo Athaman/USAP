@@ -59,11 +59,11 @@ class addusers {
   }
 
   group { cars:
-
+    ensure => 'present',
   }
 
   group { sysadmin:
-    ensure =>
+    ensure => 'present',
   }
 
   file { "/home/becca":
@@ -87,11 +87,11 @@ class addusers {
   }
 
   group { cars:
-
+    ensure => 'present',
   }
 
-  group { sysadmin:
-    ensure =>
+  group { trucks:
+    ensure => 'present',
   }
 
   file { "/home/fred":
@@ -115,15 +115,15 @@ class addusers {
   }  
 
   group { cars:
-
+    ensure => 'present',
   }
 
   group { trucks:
-    ensure =>
+    ensure => 'present',
   }
 
   group { ambulances:
-
+    ensure => 'present',
   }
 
   file { "/home/wilma":
